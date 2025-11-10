@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* root css */
+:root {
+    --font-raleway: 'Raleway', sans-serif;
+}
+
+@layer base {
+    html {
+        font-family: var(--font-raleway);
+        scroll-behavior: smooth;
+    }
+}
+
+section {
+    @apply py-10 lg:py-20;
+}
+
+section:last-child {
+    @apply pb-10;
+}
+
+.project_card {
+    @apply transition-all duration-300 relative w-full md:w-[49%] rounded-lg overflow-hidden mb-1;
+}
+
+.project_card_hover {
+    @apply absolute top-0 left-0 w-full h-full p-4 text-white transition-opacity duration-300 opacity-0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.project_card:hover .project_card_hover {
+    @apply opacity-100 cursor-pointer;
+}
+
+.bg-background {
+    background-color: hsl(0 0% 100%);
+}
+
+.meeting-btn {
+    z-index: 1000;
+    @apply transition-all relative p-3 bg-white shadow-lg rounded-full flex items-center justify-center border;
+}
+
+.meeting-btn:hover img {
+    @apply transition-all scale-125;
+}
+
+.meeting-btn::after {
+    content: '';
+    z-index: -1;
+    @apply animate-ping rounded-full bg-gray-200 w-full h-full top-0 left-0 absolute transition-all;
+}
+
+.meeting-btn:hover::after {
+    @apply animate-none bg-white transition-all;
+}
