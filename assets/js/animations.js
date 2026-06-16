@@ -108,6 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .from('.hero-img-ring', { opacity: 0, scale: 0.4, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.6')
             .from('.hero-float-card-1', { opacity: 0, x: -30, y: -10, duration: 0.6, ease: 'power3.out' }, '-=0.3')
             .from('.hero-float-card-2', { opacity: 0, x: 30, y: 10, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+            .from('.hero-float-card-3', { opacity: 0, x: 30, y: -10, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+            .from('.hero-float-card-4', { opacity: 0, x: -30, y: 10, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+            .from('.hero-float-card-5', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+            .from('.hero-float-card-6', { opacity: 0, y: -20, duration: 0.6, ease: 'power3.out' }, '-=0.4')
             .from('.hero-marquee', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, '-=0.2');
     }
 
