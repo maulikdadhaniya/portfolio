@@ -1,19 +1,34 @@
-// cursor js
-new kursor({
-    type: 1,
-    // removeDefaultCursor: true
+// preloader
+window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+
+    preloader.classList.add('preloader-hidden');
+    preloader.addEventListener('transitionend', () => preloader.remove(), { once: true });
 });
 
-// Initialize ScrollReveal with global settings
-ScrollReveal({
-    reset: false,
-    duration: 600,
-    easing: 'ease-in-out', // Smooth easing
-    distance: '50px',      // Adds a nice slide effect
-    viewOffset: { top: 20, bottom: 20 }, // Trigger animations slightly earlier
-});
+// footer year
+const yearEl = document.getElementById('year');
+if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+}
 
-// Stop preloader
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('preloader').style.display = 'none';
-});
+// theme toggle
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
+
+// mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.classList.toggle('open');
+        mobileMenu.classList.toggle('open', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+}
